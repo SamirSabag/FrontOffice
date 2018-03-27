@@ -1,0 +1,35 @@
+CREATE TABLE [dbo].[TrackersArg] (
+    [COUNT]           NVARCHAR (255)  DEFAULT ((1)) NOT NULL,
+    [COUNTRY]          NVARCHAR (255) DEFAULT ('ARG') NULL,
+    [VENDOR]           NVARCHAR (255) NULL,
+    [INVOICE #]        NVARCHAR (255) NULL,
+    [CURR]             NVARCHAR (255) NULL,
+    [SCANNING DATE]    DATETIME       NULL,
+    [RECEPTION DATE]   DATETIME       NULL,
+    [TOTAL]            FLOAT (53)     NULL,
+    [RATE]             FLOAT (53)     NULL,
+    [TOTAL USD]        FLOAT (53)     NULL,
+    [DOC ID]           FLOAT (53)     NULL,
+    [KPI FO]           INT            NULL,
+    [RESCAN CAUSED BY] NVARCHAR (255) NULL,
+    [R DOC ID]         NVARCHAR (255) NULL,
+    [RESCAN DATE]      DATETIME       NULL,
+    [NOTES]            NVARCHAR (255) NULL,
+    PRIMARY KEY CLUSTERED ([COUNT] ASC)
+);
+
+CREATE PROCEDURE dbo.uspGetAddress @Current nvarchar(30)
+AS
+UPDATE TrackersArg
+SET [TOTAL USD] = TOTAL
+WHERE (CURR = 'USD');
+
+UPDATE TrackersArg
+SET [TOTAL USD] = TOTAL/RATE
+WHERE CURR = @Current 
+
+GO
+
+EXEC  dbo.uspGetAddress @Current = 'ARS'
+
+
