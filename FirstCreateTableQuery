@@ -1,0 +1,18 @@
+CREATE TABLE [dbo].[TrackersCostaRica] (
+    [ID_]              INT            IDENTITY (1, 1) NOT NULL,
+    [COUNTRY]          NVARCHAR (255) NULL,
+    [VENDOR]           NVARCHAR (255) NULL,
+    [INVOICE #]        NVARCHAR (255) NULL,
+    [CURR]             NVARCHAR (255) NULL,
+    [SCANNING DATE]    DATETIME       NULL,
+    [RECEPTION DATE]   DATETIME       NULL,
+    [TOTAL]            FLOAT (53)     NULL,
+    [RATE]             FLOAT (53)     NULL,
+    [DOC ID]           FLOAT (53)     NULL,
+    [RESCAN CAUSED BY] NVARCHAR (255) NULL,
+    [R DOC ID]         NVARCHAR (255) NULL,
+    [RESCAN DATE]      DATETIME       NULL,
+    [NOTES]            NVARCHAR (255) NULL,
+    PRIMARY KEY CLUSTERED ([ID_] ASC)
+);
+
