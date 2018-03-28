@@ -37,4 +37,9 @@ GO
 
 EXEC  dbo.uspGetAddress @Current = 'ARS'
 
+----------> CURRENTLY SQL QUERY FOR UPDATE THE TOTAL USD COLUMN 
+CREATE PROCEDURE dbo.uspGetAddres2s @Currency nvarchar(30)
+AS
+UPDATE TrackersArg SET[TOTAL USD] = TOTAL WHERE(CURR = 'USD');  UPDATE TrackersArg SET[TOTAL USD] = TOTAL / RATE WHERE CURR = 'ARS'
 
+EXEC  dbo.uspGetAddress @Current = 'ARS'
