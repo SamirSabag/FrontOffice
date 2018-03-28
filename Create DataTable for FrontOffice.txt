@@ -1,22 +1,27 @@
-CREATE TABLE [dbo].[TrackersArg] (
-    [COUNT]           NVARCHAR (255)  DEFAULT ((1)) NOT NULL,
-    [COUNTRY]          NVARCHAR (255) DEFAULT ('ARG') NULL,
+CREATE TABLE [dbo].[TrackersBrasil] (
+	[ID_]              INT            IDENTITY (1, 1)  NOT NULL,
+    [CONT]             INT            DEFAULT  ((1))   NULL,
+    [COUNTRY]          NVARCHAR (255) DEFAULT  ('Brasil') NULL,
     [VENDOR]           NVARCHAR (255) NULL,
     [INVOICE #]        NVARCHAR (255) NULL,
-    [CURR]             NVARCHAR (255) NULL,
     [SCANNING DATE]    DATETIME       NULL,
     [RECEPTION DATE]   DATETIME       NULL,
     [TOTAL]            FLOAT (53)     NULL,
+	[CURR]             NVARCHAR (255) NULL,
     [RATE]             FLOAT (53)     NULL,
     [TOTAL USD]        FLOAT (53)     NULL,
     [DOC ID]           FLOAT (53)     NULL,
-    [KPI FO]           INT            NULL,
+    [KPI FO]           FLOAT (53)     NULL,
     [RESCAN CAUSED BY] NVARCHAR (255) NULL,
     [R DOC ID]         NVARCHAR (255) NULL,
-    [RESCAN DATE]      DATETIME       NULL,
+    [RESCAN DATE]      NVARCHAR (255) NULL,
     [NOTES]            NVARCHAR (255) NULL,
-    PRIMARY KEY CLUSTERED ([COUNT] ASC)
+    [COMPANY CODE]     NVARCHAR (255) NULL,
+    [CATERGORY]        NVARCHAR (255) NULL,
+    PRIMARY KEY CLUSTERED ([ID_] ASC)
 );
+
+
 
 CREATE PROCEDURE dbo.uspGetAddress @Current nvarchar(30)
 AS
