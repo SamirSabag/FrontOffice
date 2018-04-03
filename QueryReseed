@@ -1,0 +1,2 @@
+IF EXISTS (SELECT * FROM sys.identity_columns WHERE OBJECT_NAME(OBJECT_ID) = 'TableName' AND last_value IS NOT NULL) 
+    DBCC CHECKIDENT (TableName, RESEED, 0);
