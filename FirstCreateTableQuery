@@ -16,3 +16,9 @@ CREATE TABLE [dbo].[TrackersCostaRica] (
     PRIMARY KEY CLUSTERED ([ID_] ASC)
 );
 
+ EXEC sp_attach_db @dbname = N'TEST_BRANCH_COPY',
+ @filename1=
+ N'C:\Program Files\Microsoft SQL Server\MSSQL14.SQLEXPRESS\MSSQL\DATA\TEST_BRANCH_COPY.mdf',
+ @filename2=
+ N'C:\Program Files\Microsoft SQL Server\MSSQL14.SQLEXPRESS\MSSQL\DATA\TEST_BRANCH_COPY_log.ldf';
+ GO
